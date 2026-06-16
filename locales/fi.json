@@ -24,11 +24,11 @@
   "story.p1": "Harmac on pakkauskoneisiin erikoistunut yritys Vantaalla, Tikkurilan Simonkylässä. Lähtökohta on yksinkertainen: pakkauskoneen ostamisen ei pidä olla arvailua.",
   "story.p2": "Harmac tuo Suomeen pakkauskoneita Euroopan johtavilta valmistajilta ja saattaa ne tuotantokäyttöön: pienistä käsityöleipomoista suuriin elintarviketehtaisiin.",
   "story.p3": "Harmac ei myy sitä, mikä on helpointa. Ensin selvitetään tuotantosi tarpeet, ja sitten suositellaan ratkaisua, joka palvelee vielä vuosienkin päästä.",
-  "story.quote": "Pakkauskoneen ostamisen ei pidä olla arvailua.",
   "story.cta": "Keskustellaan tarpeistasi",
 
   "pillars.eyebrow": "Palvelut",
-  "pillars.title": "Avaimet käteen: maahantuonnista huoltoon",
+  "pillars.title": "Mukana koko matkan",
+  "pillars.lead": "Suunnittelusta ja maahantuonnista asennukseen ja koneiden huoltoon asti, Harmac on tukenasi alusta loppuun.",
   "pillars.import.title": "Maahantuonti",
   "pillars.import.desc": "Luotettavat pakkauskoneet Euroopan johtavilta valmistajilta, tuotuna Suomeen.",
   "pillars.sales.title": "Myynti ja konsultointi",

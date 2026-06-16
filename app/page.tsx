@@ -120,52 +120,28 @@ export default function HomePage() {
 
       {/* ── STORY ────────────────────────────────────────── */}
       <section id="about" className="py-20 sm:py-24 bg-bg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-14 items-center">
-            <Reveal>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3" style={{ color: 'var(--brand)' }}>
-                {t('story.eyebrow')}
-              </p>
-              <h2 className="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight mb-6 text-text">
-                {t('story.title')}
-              </h2>
-              <div className="space-y-4 text-text-muted leading-relaxed text-[17px]">
-                <p>{t('story.p1')}</p>
-                <p>{t('story.p2')}</p>
-                <p className="font-medium text-text">{t('story.p3')}</p>
-              </div>
-              <Link
-                href="/ota-yhteytta"
-                className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-white transition-all hover:scale-[1.02]"
-                style={{ backgroundColor: 'var(--brand)' }}
-              >
-                {t('story.cta')}
-                <ArrowRight size={15} />
-              </Link>
-            </Reveal>
-
-            {/* pull-quote card */}
-            <Reveal delay={0.15}>
-              <div
-                className="relative overflow-hidden rounded-3xl p-10 sm:p-14"
-                style={{ backgroundColor: 'var(--dark)' }}
-              >
-                <div
-                  className="aurora-a absolute -top-20 -right-16 w-80 h-80 rounded-full blur-3xl"
-                  style={{ background: 'radial-gradient(circle, rgba(0,184,212,0.28), transparent 60%)' }}
-                  aria-hidden="true"
-                />
-                <div className="relative">
-                  <div className="text-7xl leading-none font-extrabold mb-2" style={{ color: 'var(--brand)' }}>
-                    &ldquo;
-                  </div>
-                  <p className="text-2xl sm:text-3xl font-bold text-white leading-snug">
-                    {t('story.quote')}
-                  </p>
-                </div>
-              </div>
-            </Reveal>
-          </div>
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3" style={{ color: 'var(--brand)' }}>
+              {t('story.eyebrow')}
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight mb-6 text-text">
+              {t('story.title')}
+            </h2>
+            <div className="space-y-4 text-text-muted leading-relaxed text-[17px]">
+              <p>{t('story.p1')}</p>
+              <p>{t('story.p2')}</p>
+              <p className="font-medium text-text">{t('story.p3')}</p>
+            </div>
+            <Link
+              href="/ota-yhteytta"
+              className="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-white transition-all hover:scale-[1.02]"
+              style={{ backgroundColor: 'var(--brand)' }}
+            >
+              {t('story.cta')}
+              <ArrowRight size={15} />
+            </Link>
+          </Reveal>
         </div>
       </section>
 
@@ -176,9 +152,10 @@ export default function HomePage() {
             <p className="text-xs font-bold uppercase tracking-[0.2em] mb-3" style={{ color: 'var(--brand)' }}>
               {t('pillars.eyebrow')}
             </p>
-            <h2 className="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-text">
+            <h2 className="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight mb-4 text-text">
               {t('pillars.title')}
             </h2>
+            <p className="text-text-muted text-lg leading-relaxed">{t('pillars.lead')}</p>
           </Reveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
