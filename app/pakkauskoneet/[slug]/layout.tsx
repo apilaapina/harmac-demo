@@ -16,7 +16,7 @@ export async function generateMetadata({
   if (!machine) return { title: 'Pakkauskone' }
 
   const title = `${machine.name} – ${machine.categoryLabel.fi}`
-  const description = `${machine.tagline.fi}. ${machine.name} Harmac Oy:ltä — maahantuonti, asennus ja huolto. Pyydä tarjous.`
+  const description = `${machine.tagline.fi}. ${machine.name} Harmacilta: maahantuonti, asennus ja huolto. Pyydä tarjous.`
 
   return {
     title,

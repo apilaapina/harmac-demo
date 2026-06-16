@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { ArrowRight, ExternalLink } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 import { partners } from '@/lib/partners'
+import Reveal from '@/components/Reveal'
 
 export default function PartnersPage() {
   const { t, lang } = useLanguage()
@@ -27,10 +28,10 @@ export default function PartnersPage() {
       <section className="py-16 bg-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {partners.map((partner) => (
+            {partners.map((partner, i) => (
+              <Reveal key={partner.name} delay={(i % 3) * 0.08}>
               <div
-                key={partner.name}
-                className="bg-white rounded-2xl border border-border p-6 flex flex-col hover:shadow-lg hover:border-brand transition-all"
+                className="h-full bg-white rounded-2xl border border-border p-6 flex flex-col hover:shadow-lg hover:border-brand hover:-translate-y-1 transition-all duration-300"
               >
                 <div
                   className="w-full h-20 rounded-xl flex items-center justify-center mb-5"
@@ -65,6 +66,7 @@ export default function PartnersPage() {
                   </a>
                 )}
               </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -78,8 +80,8 @@ export default function PartnersPage() {
           </h2>
           <p className="text-text-muted mb-6 max-w-md mx-auto">
             {lang === 'fi'
-              ? 'Ota yhteyttä — kerromme mielellämme lisää edustamistamme brändeistä ja koneista.'
-              : "Get in touch — we'd be happy to tell you more about the brands and machines we represent."}
+              ? 'Ota yhteyttä, niin saat lisätietoa edustetuista brändeistä ja koneista.'
+              : 'Get in touch to learn more about the represented brands and machines.'}
           </p>
           <Link
             href="/ota-yhteytta"

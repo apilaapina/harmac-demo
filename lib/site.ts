@@ -1,5 +1,5 @@
 /**
- * Central site constants — used by metadata, sitemap, robots, and JSON-LD.
+ * Central site constants - used by metadata, sitemap, robots, and JSON-LD.
  * Points at the production domain so SEO is correct when the redesign goes live.
  */
 export const SITE_URL = 'https://harmac.fi'

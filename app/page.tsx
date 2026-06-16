@@ -6,9 +6,7 @@ import {
   Globe, Handshake, Wrench, Headphones, Cpu, ShieldCheck, Layers, MapPin,
 } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
-import PackagingLine from '@/components/PackagingLine'
 import Reveal from '@/components/Reveal'
-import Counter from '@/components/Counter'
 
 export default function HomePage() {
   const { t } = useLanguage()
@@ -37,72 +35,51 @@ export default function HomePage() {
     <>
       {/* ── HERO ─────────────────────────────────────────── */}
       <section className="relative overflow-hidden" style={{ backgroundColor: 'var(--dark)' }}>
-        {/* gradient accents */}
-        <div
-          className="absolute inset-0 opacity-90"
-          style={{
-            background:
-              'radial-gradient(60% 80% at 80% 10%, rgba(0,184,212,0.18), transparent 60%), radial-gradient(50% 60% at 0% 100%, rgba(0,184,212,0.12), transparent 60%)',
-          }}
-        />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* copy */}
-            <div>
-              <div
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold text-white mb-7"
-                style={{ backgroundColor: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.18)' }}
-              >
-                <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: 'var(--brand)' }} />
-                {t('hero.eyebrow')}
-              </div>
-
-              <h1
-                className="font-extrabold text-white leading-[1.04] mb-6 uppercase tracking-tight"
-                style={{ fontSize: 'clamp(2.4rem, 5.4vw, 4.2rem)' }}
-              >
-                {t('hero.headline')}
-              </h1>
-
-              <p className="text-lg sm:text-xl text-white/75 max-w-xl mb-9 leading-relaxed font-medium">
-                {t('hero.sub')}
-              </p>
-
-              <div className="flex flex-wrap gap-4">
-                <Link
-                  href="/ota-yhteytta"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-bold text-white transition-all duration-200 hover:scale-[1.02]"
-                  style={{ backgroundColor: 'var(--brand)', boxShadow: '0 8px 30px rgba(0,184,212,0.35)' }}
-                >
-                  {t('hero.cta.contact')}
-                  <ArrowRight size={16} />
-                </Link>
-                <Link
-                  href="/pakkauskoneet"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-sm font-bold text-white transition-all duration-200 hover:bg-white/10"
-                  style={{ border: '1px solid rgba(255,255,255,0.25)' }}
-                >
-                  {t('hero.cta.machines')}
-                </Link>
-              </div>
-            </div>
-
-            {/* animated packaging line */}
-            <div className="relative">
-              <PackagingLine />
-            </div>
-          </div>
+        {/* animated aurora */}
+        <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+          <div
+            className="aurora-a absolute -top-32 -right-24 w-[42rem] h-[42rem] rounded-full blur-3xl"
+            style={{ background: 'radial-gradient(circle, rgba(0,184,212,0.30), transparent 60%)' }}
+          />
+          <div
+            className="aurora-b absolute -bottom-40 -left-24 w-[36rem] h-[36rem] rounded-full blur-3xl"
+            style={{ background: 'radial-gradient(circle, rgba(0,184,212,0.18), transparent 60%)' }}
+          />
         </div>
 
-        {/* trust strip */}
-        <div className="relative border-t border-white/10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-              {['trust.founded', 'trust.years', 'trust.partners', 'trust.service'].map((k) => (
-                <span key={k} className="text-sm font-semibold text-white/70">{t(k)}</span>
-              ))}
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-28 sm:py-36 text-center">
+          <Reveal>
+            <h1
+              className="font-extrabold text-white leading-[1.03] mb-7 uppercase tracking-tight"
+              style={{ fontSize: 'clamp(2.6rem, 6vw, 4.6rem)' }}
+            >
+              {t('hero.headline')}
+            </h1>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="text-lg sm:text-2xl text-white/75 max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
+              {t('hero.sub')}
+            </p>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link
+                href="/ota-yhteytta"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-bold text-white transition-all duration-200 hover:scale-[1.03]"
+                style={{ backgroundColor: 'var(--brand)', boxShadow: '0 8px 30px rgba(0,184,212,0.35)' }}
+              >
+                {t('hero.cta.contact')}
+                <ArrowRight size={16} />
+              </Link>
+              <Link
+                href="/pakkauskoneet"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-bold text-white transition-all duration-200 hover:bg-white/10"
+                style={{ border: '1px solid rgba(255,255,255,0.25)' }}
+              >
+                {t('hero.cta.machines')}
+              </Link>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -122,7 +99,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {scale.map(({ icon: Icon, key, bar }, i) => (
               <Reveal key={key} delay={i * 0.1}>
-                <div className="group h-full bg-bg rounded-2xl p-7 border border-border hover:border-brand hover:shadow-xl transition-all duration-300">
+                <div className="group h-full bg-bg rounded-2xl p-7 border border-border hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                   <div
                     className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 transition-transform group-hover:scale-110"
                     style={{ backgroundColor: 'var(--brand)' }}
@@ -131,7 +108,6 @@ export default function HomePage() {
                   </div>
                   <h3 className="text-lg font-bold mb-2 text-text">{t(`offering.${key}.title`)}</h3>
                   <p className="text-text-muted leading-relaxed mb-6">{t(`offering.${key}.desc`)}</p>
-                  {/* scale bar */}
                   <div className="h-1.5 rounded-full bg-border overflow-hidden">
                     <div className={`h-full ${bar} rounded-full`} style={{ backgroundColor: 'var(--brand)' }} />
                   </div>
@@ -168,21 +144,25 @@ export default function HomePage() {
               </Link>
             </Reveal>
 
+            {/* pull-quote card */}
             <Reveal delay={0.15}>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { node: <Counter to={2010} />, label: t('stats.founded') },
-                  { node: <Counter to={15} suffix="+" />, label: t('stats.years') },
-                  { node: <Counter to={9} />, label: t('stats.partners') },
-                  { node: <Counter to={100} suffix="%" />, label: t('stats.focus') },
-                ].map(({ node, label }, idx) => (
-                  <div key={idx} className="rounded-2xl p-7 text-center border border-border bg-white">
-                    <div className="text-4xl sm:text-5xl font-extrabold mb-1 leading-none" style={{ color: 'var(--brand)' }}>
-                      {node}
-                    </div>
-                    <div className="text-sm text-text-muted font-medium mt-2">{label}</div>
+              <div
+                className="relative overflow-hidden rounded-3xl p-10 sm:p-14"
+                style={{ backgroundColor: 'var(--dark)' }}
+              >
+                <div
+                  className="aurora-a absolute -top-20 -right-16 w-80 h-80 rounded-full blur-3xl"
+                  style={{ background: 'radial-gradient(circle, rgba(0,184,212,0.28), transparent 60%)' }}
+                  aria-hidden="true"
+                />
+                <div className="relative">
+                  <div className="text-7xl leading-none font-extrabold mb-2" style={{ color: 'var(--brand)' }}>
+                    &ldquo;
                   </div>
-                ))}
+                  <p className="text-2xl sm:text-3xl font-bold text-white leading-snug">
+                    {t('story.quote')}
+                  </p>
+                </div>
               </div>
             </Reveal>
           </div>
@@ -258,8 +238,9 @@ export default function HomePage() {
       {/* ── CTA BANNER ───────────────────────────────────── */}
       <section className="py-20 relative overflow-hidden" style={{ backgroundColor: 'var(--dark)' }}>
         <div
-          className="absolute inset-0"
+          className="aurora-b absolute inset-0"
           style={{ background: 'radial-gradient(50% 80% at 50% 0%, rgba(0,184,212,0.18), transparent 65%)' }}
+          aria-hidden="true"
         />
         <Reveal className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tight mb-3">

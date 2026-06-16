@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { ChevronDown, ArrowRight, Phone, Mail } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
+import Reveal from '@/components/Reveal'
 
 type FAQ = {
   question: { fi: string; en: string }
@@ -17,34 +18,34 @@ type FAQCategory = {
 
 const faqCategories: FAQCategory[] = [
   {
-    title: { fi: 'Yleistä Harmac Oy:stä', en: 'About Harmac Oy' },
+    title: { fi: 'Yleistä Harmacista', en: 'About Harmac' },
     faqs: [
       {
-        question: { fi: 'Milloin Harmac Oy on perustettu?', en: 'When was Harmac Oy founded?' },
+        question: { fi: 'Milloin Harmac on perustettu?', en: 'When was Harmac founded?' },
         answer: {
-          fi: 'Harmac Oy perustettiin vuonna 2010. Meillä on yli 15 vuoden kokemus pakkauskoneiden maahantuonnista, myynnistä, asennuksesta ja huollosta Suomessa.',
-          en: 'Harmac Oy was founded in 2010. We have over 15 years of experience in importing, selling, installing, and servicing packaging machines in Finland.',
+          fi: 'Harmac perustettiin vuonna 2010. Yritys on erikoistunut pakkauskoneiden maahantuontiin, myyntiin, asennukseen ja huoltoon Suomessa.',
+          en: 'Harmac was founded in 2010. The company specialises in importing, selling, installing, and servicing packaging machines in Finland.',
         },
       },
       {
-        question: { fi: 'Missä Harmac Oy sijaitsee?', en: 'Where is Harmac Oy located?' },
+        question: { fi: 'Missä Harmac sijaitsee?', en: 'Where is Harmac located?' },
         answer: {
-          fi: 'Toimipisteemme sijaitsee Vantaalla, osoitteessa Leinikkitie 20B, 01350 Vantaa — Tikkurilan Simonkylässä, helposti saavutettavissa pääkaupunkiseudulta.',
-          en: 'Our office is located in Vantaa at Leinikkitie 20B, 01350 Vantaa — in the Tikkurilan Simonkylä area, easily accessible from the greater Helsinki region.',
+          fi: 'Toimipiste sijaitsee Vantaalla osoitteessa Leinikkitie 20B, 01350 Vantaa, Tikkurilan Simonkylässä. Sijainti on helposti saavutettavissa pääkaupunkiseudulta.',
+          en: 'The office is located in Vantaa at Leinikkitie 20B, 01350 Vantaa, in the Tikkurilan Simonkylä area, easily accessible from the greater Helsinki region.',
         },
       },
       {
-        question: { fi: 'Miten Harmac Oy eroaa muista pakkauskonevälittäjistä?', en: 'How does Harmac Oy differ from other packaging machine dealers?' },
+        question: { fi: 'Miten Harmac eroaa muista pakkauskonevälittäjistä?', en: 'How does Harmac differ from other packaging machine dealers?' },
         answer: {
-          fi: 'Harmac Oy:n myyntineuvotteluissa painotetaan aina teknistä osaamista kaupallisen myynninedistämisen sijaan. Emme myy sopivinta konetta vaan parhaiten sopivan. Pienenä toimijana tarjoamme henkilökohtaista palvelua ja nopean vasteajan — asiakkaasi ei joudu jonottamaan puhelinpalveluun.',
-          en: 'Harmac Oy\'s sales consultations always emphasise technical expertise over commercial promotion. We do not sell the easiest machine — we sell the best-fit machine. As a lean company, we provide personal service and fast response times — you will not be waiting in a phone queue.',
+          fi: 'Myyntineuvotteluissa painotetaan aina teknistä osaamista kaupallisen myynninedistämisen sijaan. Tavoite ei ole myydä helpointa konetta vaan parhaiten sopiva. Palvelu on henkilökohtaista ja vasteaika nopea: et joudu jonottamaan puhelinpalveluun.',
+          en: 'Sales consultations always emphasise technical expertise over commercial promotion. The aim is not to sell the easiest machine, but the best-fit one. Service is personal and response times are fast: you won\'t be waiting in a phone queue.',
         },
       },
       {
-        question: { fi: 'Mitä pakkauskonetyyppejä edustatte?', en: 'What types of packaging machines do you represent?' },
+        question: { fi: 'Mitä pakkauskonetyyppejä valikoimaan kuuluu?', en: 'What types of packaging machines are in the range?' },
         answer: {
-          fi: 'Edustamme flowpack-pakkauskoneita, pystypakkauskoneita (VFFS), monipäävaakoja sekä lisälaitteita kuten teippauskoneita, vakuumipakkauskoneita, metallinpaljastimia (Loma Systems) ja painotarkkailulaitteita.',
-          en: 'We represent flowpack packaging machines, vertical form-fill-seal (VFFS) machines, multi-head weighers, and accessories including taping machines, vacuum packaging machines, metal detectors (Loma Systems), and checkweighers.',
+          fi: 'Valikoimaan kuuluvat flowpack-pakkauskoneet, pystypakkauskoneet (VFFS), monipäävaakat sekä lisälaitteet kuten teippauskoneet, vakuumipakkauskoneet, metallinpaljastimet (Loma Systems) ja painotarkkailulaitteet.',
+          en: 'The range includes flowpack packaging machines, vertical form-fill-seal (VFFS) machines, multi-head weighers, and accessories such as taping machines, vacuum packaging machines, metal detectors (Loma Systems), and checkweighers.',
         },
       },
     ],
@@ -55,8 +56,8 @@ const faqCategories: FAQCategory[] = [
       {
         question: { fi: 'Miten valitsen oikean pakkauskoneen tuotantooni?', en: 'How do I choose the right packaging machine for my production?' },
         answer: {
-          fi: 'Oikea kone riippuu kolmesta avaintekijästä: (1) tuotteen muoto, paino ja ominaisuudet, (2) tarvittava pakkausnopeus ja kapasiteetti sekä (3) pakkausmateriaali ja pakkauksen ulkoasu. Harmac Oy tekee tarpeiden kartoituksen kanssasi — ota yhteyttä niin käydään läpi juuri sinulle sopivat vaihtoehdot.',
-          en: 'The right machine depends on three key factors: (1) your product\'s shape, weight, and characteristics, (2) required packaging speed and capacity, and (3) packaging material and pack appearance. Harmac Oy conducts a needs assessment with you — get in touch and we will walk you through the options that best suit your situation.',
+          fi: 'Oikea kone riippuu kolmesta avaintekijästä: (1) tuotteen muoto, paino ja ominaisuudet, (2) tarvittava pakkausnopeus ja kapasiteetti sekä (3) pakkausmateriaali ja pakkauksen ulkoasu. Harmac tekee tarvekartoituksen kanssasi: ota yhteyttä, niin käydään läpi juuri sinulle sopivat vaihtoehdot.',
+          en: 'The right machine depends on three key factors: (1) your product\'s shape, weight, and characteristics, (2) the required packaging speed and capacity, and (3) the packaging material and pack appearance. Harmac carries out a needs assessment with you: get in touch and the best options for your situation will be reviewed together.',
         },
       },
       {
@@ -69,15 +70,15 @@ const faqCategories: FAQCategory[] = [
       {
         question: { fi: 'Mihin käyttöön monipäävaaka tarvitaan?', en: 'When do I need a multi-head weigher?' },
         answer: {
-          fi: 'Monipäävaaka tarvitaan, kun halutaan punnita irtotuotteet tarkasti ja nopeasti ennen pakkaamista. Se on erityisesti hyödyllinen pystylinjoissa, joissa tuotteet kaadetaan pussin sisään tietyissä painoportaissa. Monipäävaaka minimoi tuotehävikin paremman annostustarkkuuden ansiosta.',
+          fi: 'Monipäävaaka tarvitaan, kun halutaan punnita irtotuotteet tarkasti ja nopeasti ennen pakkaamista. Se on erityisen hyödyllinen pystylinjoissa, joissa tuotteet kaadetaan pussin sisään tietyissä painoportaissa. Monipäävaaka minimoi tuotehävikin paremman annostustarkkuuden ansiosta.',
           en: 'A multi-head weigher is needed when you want to accurately and quickly weigh loose products before packaging. It is particularly useful in vertical lines where products are dropped into bags at specific weight targets. A multi-head weigher minimises product giveaway through improved dosing accuracy.',
         },
       },
       {
         question: { fi: 'Voidaanko koneita räätälöidä tuotteilleni?', en: 'Can machines be customised for my products?' },
         answer: {
-          fi: 'Kyllä. Kaikki edustamamme koneet voidaan konfiguroida tuotteen, pakkausmateriaalin ja tuotantolinjaston mukaan. Eräitä esimerkkejä räätälöinnistä ovat erityiset kauhut tahmeille tuotteille, suojakaasupakkaus (MAP), erikoisfilmit biopohjaisille pakkausmateriaaleille ja erilaiset pussinmuodot.',
-          en: 'Yes. All the machines we represent can be configured to your product, packaging material, and production line. Examples of customisation include special buckets for sticky products, modified atmosphere packaging (MAP), special films for bio-based materials, and various bag formats.',
+          fi: 'Kyllä. Kaikki edustetut koneet voidaan konfiguroida tuotteen, pakkausmateriaalin ja tuotantolinjan mukaan. Esimerkkejä räätälöinnistä ovat erityiset kauhat tahmeille tuotteille, suojakaasupakkaus (MAP), erikoisfilmit biopohjaisille pakkausmateriaaleille ja erilaiset pussinmuodot.',
+          en: 'Yes. All represented machines can be configured to your product, packaging material, and production line. Examples of customisation include special buckets for sticky products, modified atmosphere packaging (MAP), special films for bio-based materials, and various bag formats.',
         },
       },
     ],
@@ -88,29 +89,29 @@ const faqCategories: FAQCategory[] = [
       {
         question: { fi: 'Kuinka pitkä on toimitusaika?', en: 'How long is the delivery lead time?' },
         answer: {
-          fi: 'Toimitusajat vaihtelevat konetyypistä ja varastotilanteesta riippuen. Tyypillisesti toimitusaika on 6–14 viikkoa. Kiireellisissä tapauksissa selvitämme aina mahdollisuuden nopeampaan toimitukseen. Ota yhteyttä ja kerro tarpeestasi niin annamme tarkan aikataulun.',
-          en: 'Lead times vary depending on the machine type and stock availability. Typically delivery takes 6–14 weeks. For urgent cases, we always explore the possibility of a faster delivery. Get in touch and tell us your requirements and we will give you a precise timeline.',
+          fi: 'Toimitusajat vaihtelevat konetyypistä ja varastotilanteesta riippuen, tyypillisesti 6–14 viikkoa. Kiireellisissä tapauksissa selvitetään aina mahdollisuus nopeampaan toimitukseen. Ota yhteyttä ja kerro tarpeesi, niin saat tarkan aikataulun.',
+          en: 'Lead times vary by machine type and stock availability, typically 6–14 weeks. For urgent cases, the possibility of a faster delivery is always explored. Get in touch and tell us your requirements to receive a precise timeline.',
         },
       },
       {
         question: { fi: 'Sisältyykö asennus koneen hintaan?', en: 'Is installation included in the machine price?' },
         answer: {
-          fi: 'Asennus-, käyttöönotto- ja koulutuspalvelu voidaan sisällyttää toimitukseen. Käymme tämän läpi tarjouksen yhteydessä. Harmac Oy:n teknikot tekevät asennuksen paikan päällä tehtaassasi.',
-          en: 'Installation, commissioning, and training services can be included in the delivery. We discuss this when preparing the quotation. Harmac Oy technicians carry out the installation at your factory.',
+          fi: 'Asennus-, käyttöönotto- ja koulutuspalvelu voidaan sisällyttää toimitukseen. Tämä käydään läpi tarjouksen yhteydessä. Harmac tekee asennuksen paikan päällä tehtaassasi.',
+          en: 'Installation, commissioning, and training can be included in the delivery. This is reviewed when preparing the quotation. Harmac carries out the installation on-site at your factory.',
         },
       },
       {
         question: { fi: 'Kuinka kauan asennus kestää?', en: 'How long does installation take?' },
         answer: {
-          fi: 'Yksinkertaisen koneen asennus kestää tyypillisesti 1–2 päivää. Monimutkaisempi pakkauslinja, jossa on useita laitteita, voi vaatia 3–5 päivää. Antamme tarkan aikataulun etukäteen.',
-          en: 'A straightforward single-machine installation typically takes 1–2 days. A more complex packaging line involving multiple pieces of equipment may require 3–5 days. We provide a precise schedule in advance.',
+          fi: 'Yksinkertaisen koneen asennus kestää tyypillisesti 1–2 päivää. Monimutkaisempi pakkauslinja, jossa on useita laitteita, voi vaatia 3–5 päivää. Tarkka aikataulu annetaan etukäteen.',
+          en: 'A straightforward single-machine installation typically takes 1–2 days. A more complex packaging line with multiple devices may require 3–5 days. A precise schedule is provided in advance.',
         },
       },
       {
-        question: { fi: 'Tarjoatteko henkilöstökoulutusta?', en: 'Do you provide staff training?' },
+        question: { fi: 'Sisältyykö toimitukseen henkilöstökoulutus?', en: 'Is staff training included?' },
         answer: {
-          fi: 'Kyllä. Käyttöönottoon kuuluu aina henkilöstön koulutus. Koulutamme operaattorit koneen käyttöön, perushuoltoon ja vianmääritykseen paikan päällä asennuksen yhteydessä.',
-          en: 'Yes. Commissioning always includes staff training. We train operators in machine operation, basic maintenance, and fault-finding on-site during installation.',
+          fi: 'Kyllä. Käyttöönottoon kuuluu aina henkilöstön koulutus. Operaattorit koulutetaan koneen käyttöön, perushuoltoon ja vianmääritykseen paikan päällä asennuksen yhteydessä.',
+          en: 'Yes. Commissioning always includes staff training. Operators are trained in machine operation, basic maintenance, and fault-finding on-site during installation.',
         },
       },
     ],
@@ -119,31 +120,31 @@ const faqCategories: FAQCategory[] = [
     title: { fi: 'Huolto ja tuki', en: 'Service and support' },
     faqs: [
       {
-        question: { fi: 'Tarjoatteko huoltopalvelua ostamisen jälkeen?', en: 'Do you offer after-sales service?' },
+        question: { fi: 'Onko huoltopalvelua saatavilla ostamisen jälkeen?', en: 'Is after-sales service available?' },
         answer: {
-          fi: 'Kyllä. Harmac Oy tarjoaa kattavan huoltopalvelun kaikille edustamilleen koneille: ennakkohuollot sopimuksen mukaan, vianetsintä ja korjaus, varaosatoimitus sekä etätuki. Tavoitteemme on minimoida tuotantokatkokset.',
-          en: 'Yes. Harmac Oy provides comprehensive after-sales service for all the machines it represents: scheduled preventive maintenance, fault-finding and repair, spare parts supply, and remote support. Our goal is to minimise production downtime.',
+          fi: 'Kyllä. Harmac tarjoaa kattavan huoltopalvelun kaikille edustamilleen koneille: ennakkohuollot sopimuksen mukaan, vianetsintä ja korjaus, varaosatoimitus sekä etätuki. Tavoitteena on minimoida tuotantokatkokset.',
+          en: 'Yes. Harmac provides comprehensive after-sales service for all represented machines: scheduled preventive maintenance, fault-finding and repair, spare parts supply, and remote support. The goal is to minimise production downtime.',
         },
       },
       {
-        question: { fi: 'Saanko varaosia myös vanhempiin koneisiin?', en: 'Can I get spare parts for older machines?' },
+        question: { fi: 'Saako varaosia myös vanhempiin koneisiin?', en: 'Can I get spare parts for older machines?' },
         answer: {
-          fi: 'Kyllä. Yhteistyössä valmistajien kanssa pystymme toimittamaan varaosia myös vanhempiin konemalleihin. Otamme yhteyttä valmistajaan ja selvitämme saatavuuden tapauskohtaisesti.',
-          en: 'Yes. Working together with manufacturers, we are able to supply spare parts for older machine models too. We contact the manufacturer and investigate availability on a case-by-case basis.',
+          fi: 'Kyllä. Yhteistyössä valmistajien kanssa varaosia voidaan toimittaa myös vanhempiin konemalleihin. Saatavuus selvitetään valmistajalta tapauskohtaisesti.',
+          en: 'Yes. Working together with the manufacturers, spare parts can be supplied for older machine models too. Availability is checked with the manufacturer on a case-by-case basis.',
         },
       },
       {
         question: { fi: 'Onko etätuki saatavilla?', en: 'Is remote support available?' },
         answer: {
-          fi: 'Kyllä. Monet ongelmat voidaan ratkaista etänä ilman teknikoiden käyntiä. Etätuki on nopeampi ja edullisempi vaihtoehto pienempiin vianmäärityksiin ja ohjelmistosäätöihin.',
-          en: 'Yes. Many issues can be resolved remotely without a technician visit. Remote support is a faster and more cost-effective option for minor fault-finding and software adjustments.',
+          fi: 'Kyllä. Monet ongelmat voidaan ratkaista etänä ilman käyntiä paikan päällä. Etätuki on nopeampi ja edullisempi vaihtoehto pienempiin vianmäärityksiin ja ohjelmistosäätöihin.',
+          en: 'Yes. Many issues can be resolved remotely without an on-site visit. Remote support is a faster and more cost-effective option for minor fault-finding and software adjustments.',
         },
       },
       {
-        question: { fi: 'Teettekö ennakkohuoltosopimuksia?', en: 'Do you offer preventive maintenance contracts?' },
+        question: { fi: 'Onko ennakkohuoltosopimuksia tarjolla?', en: 'Are preventive maintenance contracts available?' },
         answer: {
           fi: 'Kyllä. Ennakkohuoltosopimus vähentää odottamattomia tuotantokatkoksia ja pidentää koneen käyttöikää. Sopimus räätälöidään koneen käyttöasteen ja kriittisyyden mukaan. Kysy lisää.',
-          en: 'Yes. A preventive maintenance contract reduces unexpected production downtime and extends the machine\'s service life. The contract is tailored to the machine\'s usage intensity and criticality. Ask us for more details.',
+          en: 'Yes. A preventive maintenance contract reduces unexpected production downtime and extends the machine\'s service life. The contract is tailored to the machine\'s usage intensity and criticality. Ask for more details.',
         },
       },
     ],
@@ -154,15 +155,15 @@ const faqCategories: FAQCategory[] = [
       {
         question: { fi: 'Mitä pakkausmateriaaleja koneet käyttävät?', en: 'What packaging materials can the machines use?' },
         answer: {
-          fi: 'Edustamamme koneet soveltuvat laajaan valikoimaan pakkausmateriaaleja: polyeteeni (PE), polypropyleeni (PP), monilaminaatti, biopohjaiset kalvot, kierrätysmateriaalit ja erilaiset yhdistelmämateriaalit. Materiaalin valinta riippuu tuotteesta, säilyvyysvaatimuksista ja brändistäsi.',
-          en: 'The machines we represent are compatible with a wide range of packaging materials: polyethylene (PE), polypropylene (PP), multi-laminate, bio-based films, recyclable materials, and various composite materials. The choice of material depends on your product, shelf-life requirements, and brand.',
+          fi: 'Edustetut koneet soveltuvat laajaan valikoimaan pakkausmateriaaleja: polyeteeni (PE), polypropeeni (PP), monilaminaatti, biopohjaiset kalvot, kierrätysmateriaalit ja erilaiset yhdistelmämateriaalit. Materiaalin valinta riippuu tuotteesta, säilyvyysvaatimuksista ja brändistäsi.',
+          en: 'The represented machines are compatible with a wide range of packaging materials: polyethylene (PE), polypropylene (PP), multi-laminate, bio-based films, recyclable materials, and various composite materials. The choice of material depends on your product, shelf-life requirements, and brand.',
         },
       },
       {
         question: { fi: 'Onko koneilla CE-merkintä?', en: 'Do the machines have CE marking?' },
         answer: {
-          fi: 'Kyllä. Kaikki edustamamme koneet täyttävät EU:n konedirektiivin vaatimukset ja niissä on CE-merkintä. Tarvittaessa voimme toimittaa koneen täydellisen teknisen dokumentaation.',
-          en: 'Yes. All the machines we represent comply with the EU Machinery Directive and carry CE marking. If required, we can supply the machine\'s complete technical documentation.',
+          fi: 'Kyllä. Kaikki edustetut koneet täyttävät EU:n konedirektiivin vaatimukset ja niissä on CE-merkintä. Tarvittaessa koneen täydellinen tekninen dokumentaatio toimitetaan.',
+          en: 'Yes. All represented machines comply with the EU Machinery Directive and carry CE marking. The machine\'s complete technical documentation is available on request.',
         },
       },
       {
@@ -175,15 +176,15 @@ const faqCategories: FAQCategory[] = [
       {
         question: { fi: 'Voidaanko kone integroida olemassa olevaan tuotantolinjaan?', en: 'Can the machine be integrated into an existing production line?' },
         answer: {
-          fi: 'Kyllä. Kaikki edustamamme koneet voidaan integroida kuljetinjärjestelmien kautta olemassa oleviin linjoihin. Suunnittelemme integraation yhdessä ja tarvittaessa tilaamme sopivat liitäntäkuljettimet.',
-          en: 'Yes. All the machines we represent can be integrated via conveyor systems into existing lines. We plan the integration together and, if needed, order appropriate interface conveyors.',
+          fi: 'Kyllä. Kaikki edustetut koneet voidaan integroida kuljetinjärjestelmien kautta olemassa oleviin linjoihin. Integraatio suunnitellaan yhdessä ja tarvittaessa tilataan sopivat liitäntäkuljettimet.',
+          en: 'Yes. All represented machines can be integrated via conveyor systems into existing lines. The integration is planned together and, if needed, suitable interface conveyors are ordered.',
         },
       },
       {
         question: { fi: 'Kuinka kone puhdistetaan?', en: 'How is the machine cleaned?' },
         answer: {
-          fi: 'Puhdistusohjeet vaihtelevat konetyypeittäin ja ovat aina koneen käyttöohjeessa. Elintarvikekoneet ovat yleensä IP65-luokiteltuja ja pestävissä painevedellä. Koulutuksessa käymme läpi puhdistusmenetelmän koneen asennuksen yhteydessä.',
-          en: 'Cleaning instructions vary by machine type and are always included in the machine\'s operating manual. Food-grade machines are generally rated IP65 and can be cleaned with pressurised water. We cover the cleaning procedure during training at installation.',
+          fi: 'Puhdistusohjeet vaihtelevat konetyypeittäin ja löytyvät aina koneen käyttöohjeesta. Elintarvikekoneet ovat yleensä IP65-luokiteltuja ja pestävissä painevedellä. Puhdistusmenetelmä käydään läpi koulutuksessa asennuksen yhteydessä.',
+          en: 'Cleaning instructions vary by machine type and are always included in the operating manual. Food-grade machines are generally rated IP65 and can be cleaned with pressurised water. The cleaning procedure is covered during training at installation.',
         },
       },
     ],
@@ -224,7 +225,7 @@ export default function FAQPage() {
   const { t, lang } = useLanguage()
   const [openKey, setOpenKey] = useState<string | null>(null)
 
-  // JSON-LD for this page — full FAQPage schema
+  // JSON-LD for this page: full FAQPage schema
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -287,37 +288,33 @@ export default function FAQPage() {
 
           {/* Category sections */}
           <div className="space-y-10">
-            {faqCategories.map((cat) => (
-              <div key={cat.title.fi} id={cat.title.fi.replace(/\s+/g, '-').toLowerCase()}>
-                <div className="flex items-center gap-3 mb-4">
-                  <div
-                    className="h-px flex-1"
-                    style={{ backgroundColor: 'var(--brand)', opacity: 0.3 }}
-                  />
-                  <h2 className="text-sm font-extrabold uppercase tracking-widest whitespace-nowrap" style={{ color: 'var(--brand)' }}>
-                    {cat.title[lang]}
-                  </h2>
-                  <div
-                    className="h-px flex-1"
-                    style={{ backgroundColor: 'var(--brand)', opacity: 0.3 }}
-                  />
-                </div>
+            {faqCategories.map((cat, ci) => (
+              <Reveal key={cat.title.fi} delay={ci * 0.05}>
+                <div id={cat.title.fi.replace(/\s+/g, '-').toLowerCase()} className="scroll-mt-24">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="h-px flex-1" style={{ backgroundColor: 'var(--brand)', opacity: 0.3 }} />
+                    <h2 className="text-sm font-extrabold uppercase tracking-widest whitespace-nowrap" style={{ color: 'var(--brand)' }}>
+                      {cat.title[lang]}
+                    </h2>
+                    <div className="h-px flex-1" style={{ backgroundColor: 'var(--brand)', opacity: 0.3 }} />
+                  </div>
 
-                <div className="bg-white rounded-2xl border border-border overflow-hidden">
-                  {cat.faqs.map((faq, i) => {
-                    const key = `${cat.title.fi}-${i}`
-                    return (
-                      <FAQItem
-                        key={key}
-                        faq={faq}
-                        lang={lang}
-                        isOpen={openKey === key}
-                        onToggle={() => setOpenKey(openKey === key ? null : key)}
-                      />
-                    )
-                  })}
+                  <div className="bg-white rounded-2xl border border-border overflow-hidden">
+                    {cat.faqs.map((faq, i) => {
+                      const key = `${cat.title.fi}-${i}`
+                      return (
+                        <FAQItem
+                          key={key}
+                          faq={faq}
+                          lang={lang}
+                          isOpen={openKey === key}
+                          onToggle={() => setOpenKey(openKey === key ? null : key)}
+                        />
+                      )
+                    })}
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
 
@@ -331,8 +328,8 @@ export default function FAQPage() {
             </h2>
             <p className="text-white/60 mb-6 text-sm">
               {lang === 'fi'
-                ? 'Ota suoraan yhteyttä — vastaamme kaikkiin kysymyksiin.'
-                : 'Contact us directly — we answer every question.'}
+                ? 'Ota suoraan yhteyttä, niin saat vastauksen kaikkiin kysymyksiin.'
+                : 'Contact us directly to get an answer to every question.'}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link

@@ -4,7 +4,7 @@ import { SITE_URL } from '@/lib/site'
 export const metadata: Metadata = {
   title: 'Yhteistyökumppanit – edustamamme pakkauskonevalmistajat',
   description:
-    'Harmac Oy edustaa alan johtavia pakkauskonevalmistajia: PFM, Sorma, Loma Systems ja muut. Tutustu kumppaneihimme ja edustamiimme brändeihin.',
+    'Harmac edustaa alan johtavia pakkauskonevalmistajia: PFM, Sorma, Loma Systems ja muut. Tutustu yhteistyökumppaneihin ja edustettuihin brändeihin.',
   alternates: { canonical: '/yhteistyossa' },
   openGraph: {
     title: 'Yhteistyössä | Harmac Oy',

@@ -68,11 +68,11 @@ export const machines: Machine[] = [
       },
       {
         question: { fi: 'Kuinka nopeasti kone voidaan asentaa?', en: 'How quickly can the machine be installed?' },
-        answer: { fi: 'Tyypillinen asennusaika on 1–2 päivää. Harmac Oy:n ammattitaitoiset teknikot hoitavat asennuksen, käyttöönoton ja henkilöstön koulutuksen paikan päällä.', en: 'Typical installation takes 1–2 days. Harmac Oy\'s experienced technicians handle installation, commissioning, and on-site staff training.' },
+        answer: { fi: 'Tyypillinen asennusaika on 1–2 päivää. Harmac hoitaa asennuksen, käyttöönoton ja henkilöstön koulutuksen paikan päällä.', en: 'Typical installation takes 1–2 days. Harmac handles installation, commissioning, and on-site staff training.' },
       },
       {
         question: { fi: 'Onko koneelle saatavilla huoltopalvelu?', en: 'Is service and maintenance available for this machine?' },
-        answer: { fi: 'Kyllä. Harmac Oy tarjoaa täyden huoltopalvelun, varaosatuen ja etätuen kaikille edustamilleen koneille. Teemme myös säännölliset ennakkohuollot sopimuksen mukaan.', en: 'Yes. Harmac Oy provides full after-sales service, spare parts support, and remote assistance for all machines we represent. We also perform scheduled preventive maintenance under service agreements.' },
+        answer: { fi: 'Kyllä. Harmac tarjoaa täyden huoltopalvelun, varaosatuen ja etätuen kaikille edustamilleen koneille. Myös säännölliset ennakkohuollot hoituvat sopimuksen mukaan.', en: 'Yes. Harmac provides full after-sales service, spare parts support, and remote assistance for all represented machines. Scheduled preventive maintenance is also available under service agreements.' },
       },
     ],
     applications: {
@@ -154,8 +154,8 @@ export const machines: Machine[] = [
       en: 'Compact flowpack for small-batch and artisan producers',
     },
     description: {
-      fi: 'Pearl on pienyrityksille ja käsityötuottajille suunniteltu kompakti flowpack-pakkauskone. Sen pienen jalanjäljen ja edullisen hankintahinnan ansiosta se on ihanteellinen aloittaville yrityksille tai yrityksille, jotka haluavat automatisoida pakkaamistaan ensimmäistä kertaa.\n\nPearlista huolimatta kone ei tingi pakkaustuloksesta – se tuottaa siistejä, ammattimaisesti suljettuja pakkauksia, jotka parantavat tuotteiden ulkonäköä myymälähyllyllä.',
-      en: 'The Pearl is a compact flowpack packaging machine designed for small businesses and artisan producers. Its small footprint and affordable purchase price make it ideal for start-up companies or businesses automating their packaging for the first time.\n\nDespite its size, the Pearl does not compromise on packaging quality — it produces neat, professionally sealed packs that improve product appearance on retail shelves.',
+      fi: 'Pearl on pienyrityksille ja käsityötuottajille suunniteltu kompakti flowpack-pakkauskone. Sen pienen jalanjäljen ja edullisen hankintahinnan ansiosta se on ihanteellinen aloittaville yrityksille tai yrityksille, jotka haluavat automatisoida pakkaamistaan ensimmäistä kertaa.\n\nPienestä koostaan huolimatta Pearl ei tingi pakkaustuloksesta: se tuottaa siistejä, ammattimaisesti suljettuja pakkauksia, jotka parantavat tuotteen ulkonäköä myymälähyllyllä.',
+      en: 'The Pearl is a compact flowpack packaging machine designed for small businesses and artisan producers. Its small footprint and affordable purchase price make it ideal for start-up companies or businesses automating their packaging for the first time.\n\nDespite its size, the Pearl does not compromise on packaging quality: it produces neat, professionally sealed packs that improve product appearance on retail shelves.',
     },
     specs: [
       { label: { fi: 'Pakkausnopeus', en: 'Packaging speed' }, value: { fi: 'jopa 60 pakk./min', en: 'up to 60 packs/min' } },

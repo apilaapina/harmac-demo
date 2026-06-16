@@ -7,6 +7,7 @@ import Image from 'next/image'
 import { ArrowRight, Package, Layers, Scale, Wrench } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 import { machines, categoryMeta, machineImages, Machine } from '@/lib/machines'
+import Reveal from '@/components/Reveal'
 
 const categoryIcons = {
   flowpack: Package,
@@ -103,8 +104,10 @@ function MachinesContent() {
                     </h2>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                    {catMachines.map((machine) => (
-                      <MachineCard key={machine.slug} machine={machine} lang={lang} t={t} />
+                    {catMachines.map((machine, i) => (
+                      <Reveal key={machine.slug} delay={(i % 4) * 0.06}>
+                        <MachineCard machine={machine} lang={lang} t={t} />
+                      </Reveal>
                     ))}
                   </div>
                 </div>
@@ -112,8 +115,10 @@ function MachinesContent() {
             })
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {filtered.map((machine) => (
-                <MachineCard key={machine.slug} machine={machine} lang={lang} t={t} />
+              {filtered.map((machine, i) => (
+                <Reveal key={machine.slug} delay={(i % 4) * 0.06}>
+                  <MachineCard machine={machine} lang={lang} t={t} />
+                </Reveal>
               ))}
             </div>
           )}
@@ -128,8 +133,8 @@ function MachinesContent() {
           </h2>
           <p className="text-white/60 mb-6">
             {lang === 'fi'
-              ? 'Kerro tuotannosta ja tarpeistasi — löydämme sopivan ratkaisun.'
-              : 'Tell us about your production and needs — we will find the right solution.'}
+              ? 'Kerro tuotannostasi ja tarpeistasi, niin löytyy sopiva ratkaisu.'
+              : 'Tell us about your production and needs, and the right solution will follow.'}
           </p>
           <Link
             href="/ota-yhteytta"
@@ -159,7 +164,7 @@ function MachineCard({
   return (
     <Link
       href={`/pakkauskoneet/${machine.slug}`}
-      className="group bg-white rounded-2xl border border-border hover:border-brand hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden"
+      className="group h-full bg-white rounded-2xl border border-border hover:border-brand hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col overflow-hidden"
     >
       {/* Image */}
       <div

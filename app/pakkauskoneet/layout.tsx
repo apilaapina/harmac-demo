@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Pakkauskoneet | Harmac Oy',
     description:
-      'Flowpack, pystypakkaus, monipäävaa’at ja lisälaitteet — pientuotannosta suurteollisuuteen.',
+      'Flowpack, pystypakkaus, monipäävaa’at ja lisälaitteet pientuotannosta suurteollisuuteen.',
     url: `${SITE_URL}/pakkauskoneet`,
     type: 'website',
   },

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: '%s | Harmac Oy',
   },
   description:
-    'Harmac Oy maahantuo, myy, asentaa ja huoltaa pakkauskoneet — pientuotannosta suuriin tehtaisiin. Flowpack, pystypakkaus ja monipäävaa’at. Vantaa. Pyydä tarjous.',
+    'Harmac maahantuo, myy, asentaa ja huoltaa pakkauskoneet pientuotannosta suuriin tehtaisiin. Flowpack, pystypakkaus ja monipäävaa’at. Vantaa. Pyydä tarjous.',
   keywords: KEYWORDS,
   authors: [{ name: SITE_NAME }],
   creator: SITE_NAME,
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Harmac Oy – Pakkauskoneet pientuotannosta suuriin tehtaisiin',
     description:
-      'Pakkauskoneiden maahantuonti, myynti, asennus ja huolto. Riippumaton kumppani, joka tuntee koneet. Perustettu 2010, Vantaa.',
+      'Pakkauskoneiden maahantuonti, myynti, asennus ja huolto. Riippumaton kumppani, joka tuntee koneet. Vantaa.',
     url: SITE_URL,
     siteName: SITE_NAME,
     locale: 'fi_FI',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Harmac Oy – Pakkauskoneet',
-    description: 'Pakkauskoneiden maahantuonti, myynti, asennus ja huolto. Perustettu 2010, Vantaa.',
+    description: 'Pakkauskoneiden maahantuonti, myynti, asennus ja huolto. Vantaa.',
   },
   category: 'Packaging machinery',
 }

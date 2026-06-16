@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { MapPin, Mail, Phone } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 import ContactForm from '@/components/ContactForm'
+import Reveal from '@/components/Reveal'
 
 export default function ContactPage() {
   const { t, lang } = useLanguage()
@@ -29,14 +30,14 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
 
             {/* Form */}
-            <div className="lg:col-span-2">
+            <Reveal className="lg:col-span-2">
               <div className="bg-white rounded-2xl border border-border p-8">
                 <ContactForm />
               </div>
-            </div>
+            </Reveal>
 
             {/* Contact info */}
-            <div className="space-y-5">
+            <Reveal delay={0.12} className="space-y-5">
               <div className="bg-white rounded-2xl border border-border p-6">
                 <h2 className="text-sm font-extrabold uppercase tracking-widest mb-5" style={{ color: 'var(--brand)' }}>
                   {t('contact.info.title')}
@@ -86,7 +87,7 @@ export default function ContactPage() {
                   referrerPolicy="no-referrer-when-downgrade"
                 />
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>

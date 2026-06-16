@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/ota-yhteytta' },
   openGraph: {
     title: 'Ota yhteyttä | Harmac Oy',
-    description: 'Pyydä tarjous pakkauskoneesta — kerro tuotannostasi.',
+    description: 'Pyydä tarjous pakkauskoneesta ja kerro tuotannostasi.',
     url: `${SITE_URL}/ota-yhteytta`,
     type: 'website',
   },
