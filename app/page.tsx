@@ -7,6 +7,7 @@ import {
 } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 import Reveal from '@/components/Reveal'
+import HeroVideo from '@/components/HeroVideo'
 
 export default function HomePage() {
   const { t } = useLanguage()
@@ -34,54 +35,7 @@ export default function HomePage() {
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────── */}
-      <section className="relative overflow-hidden" style={{ backgroundColor: 'var(--dark)' }}>
-        {/* animated aurora */}
-        <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-          <div
-            className="aurora-a absolute -top-32 -right-24 w-[42rem] h-[42rem] rounded-full blur-3xl"
-            style={{ background: 'radial-gradient(circle, rgba(0,184,212,0.30), transparent 60%)' }}
-          />
-          <div
-            className="aurora-b absolute -bottom-40 -left-24 w-[36rem] h-[36rem] rounded-full blur-3xl"
-            style={{ background: 'radial-gradient(circle, rgba(0,184,212,0.18), transparent 60%)' }}
-          />
-        </div>
-
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-28 sm:py-36 text-center">
-          <Reveal>
-            <h1
-              className="font-extrabold text-white leading-[1.03] mb-7 uppercase tracking-tight"
-              style={{ fontSize: 'clamp(2.6rem, 6vw, 4.6rem)' }}
-            >
-              {t('hero.headline')}
-            </h1>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="text-lg sm:text-2xl text-white/75 max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
-              {t('hero.sub')}
-            </p>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link
-                href="/ota-yhteytta"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-bold text-white transition-all duration-200 hover:scale-[1.03]"
-                style={{ backgroundColor: 'var(--brand)', boxShadow: '0 8px 30px rgba(0,184,212,0.35)' }}
-              >
-                {t('hero.cta.contact')}
-                <ArrowRight size={16} />
-              </Link>
-              <Link
-                href="/pakkauskoneet"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-bold text-white transition-all duration-200 hover:bg-white/10"
-                style={{ border: '1px solid rgba(255,255,255,0.25)' }}
-              >
-                {t('hero.cta.machines')}
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <HeroVideo />
 
       {/* ── OFFERING: small → large ──────────────────────── */}
       <section className="py-20 sm:py-24 bg-white">
