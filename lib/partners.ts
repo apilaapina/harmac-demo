@@ -3,6 +3,8 @@ export type Partner = {
   category: { fi: string; en: string }
   description: { fi: string; en: string }
   website?: string
+  /** Logo path in /public/partners (official logos from harmac.fi); falls back to a wordmark. */
+  logo?: string
 }
 
 export const partners: Partner[] = [
@@ -14,6 +16,7 @@ export const partners: Partner[] = [
       en: 'PFM is an Italian packaging machine manufacturer specialising in flowpack and vertical packaging solutions for food and non-food industries.',
     },
     website: 'https://www.pfm-group.com',
+    logo: '/partners/pfm.png',
   },
   {
     name: 'Sorma',
@@ -23,6 +26,7 @@ export const partners: Partner[] = [
       en: 'Sorma offers innovative packaging solutions for fresh produce, particularly fruits and vegetables.',
     },
     website: 'https://www.sorma.it',
+    logo: '/partners/sorma.jpg',
   },
   {
     name: 'Jehitek',
@@ -31,6 +35,7 @@ export const partners: Partner[] = [
       fi: 'Jehitek on erikoistunut automaattisiin lavaajiin ja pakkauslinjaston loppupään ratkaisuihin.',
       en: 'Jehitek specialises in automatic palletisers and end-of-line packaging solutions.',
     },
+    logo: '/partners/jehitek.png',
   },
   {
     name: 'Nemesis',
@@ -39,6 +44,7 @@ export const partners: Partner[] = [
       fi: 'Nemesis valmistaa tarkkoja vaakoja ja annostelulaitteita, jotka integroituvat saumattomasti pakkauslinjoihin.',
       en: 'Nemesis manufactures precise scales and dosing equipment that integrate seamlessly with packaging lines.',
     },
+    logo: '/partners/nemesis.png',
   },
   {
     name: 'Carl Valentin',
@@ -48,6 +54,7 @@ export const partners: Partner[] = [
       en: 'Carl Valentin is a German label printer manufacturer whose products are known for reliability in industrial environments.',
     },
     website: 'https://www.carl-valentin.de',
+    logo: '/partners/carl-valentin.svg',
   },
   {
     name: 'Webomatic',
@@ -57,6 +64,7 @@ export const partners: Partner[] = [
       en: 'Webomatic provides high-quality tray-seal and vacuum packaging solutions for food and pharmaceutical industries.',
     },
     website: 'https://www.webomatic.de',
+    logo: '/partners/webomatic.png',
   },
   {
     name: 'Comarme',
@@ -65,6 +73,7 @@ export const partners: Partner[] = [
       fi: 'Comarme on erikoistunut nestemäisten ja puolinestemäisten tuotteiden täyttökoneisiin.',
       en: 'Comarme specialises in filling machines for liquid and semi-liquid products.',
     },
+    logo: '/partners/comarme.png',
   },
   {
     name: 'Loma Systems',
@@ -74,6 +83,7 @@ export const partners: Partner[] = [
       en: 'Loma Systems is one of the world\'s leading manufacturers of food safety inspection equipment: metal detectors, X-ray systems, and checkweighers.',
     },
     website: 'https://www.loma.com',
+    logo: '/partners/loma.jpg',
   },
   {
     name: 'PMR',
@@ -82,5 +92,6 @@ export const partners: Partner[] = [
       fi: 'PMR valmistaa täyttökoneita nestemäisille ja puolinestemäisille tuotteille elintarvike- ja kosmetiikkateollisuuteen.',
       en: 'PMR manufactures filling machines for liquid and semi-liquid products in the food and cosmetics industries.',
     },
+    logo: '/partners/pmr.jpg',
   },
 ]

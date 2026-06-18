@@ -1,6 +1,7 @@
 'use client'
 
-import { createContext, useContext, useState, ReactNode } from 'react'
+import { createContext, useContext, ReactNode } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
 
 export type Lang = 'fi' | 'en'
 
@@ -20,8 +21,29 @@ const translations: Record<Lang, Record<string, string>> = {
   en: enTranslations,
 }
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Lang>('fi')
+/** Cookie remembering the visitor's choice so the proxy can honour it on `/`. */
+const COOKIE_KEY = 'harmac-lang'
+
+/**
+ * The active locale is derived from the URL (`/fi/...` or `/en/...`) and passed
+ * in by the server layout. Switching languages navigates to the same page under
+ * the other locale prefix, so both languages are real, crawlable URLs.
+ */
+export function LanguageProvider({ lang, children }: { lang: Lang; children: ReactNode }) {
+  const pathname = usePathname()
+  const router = useRouter()
+
+  const setLang = (next: Lang) => {
+    if (next === lang) return
+    try {
+      document.cookie = `${COOKIE_KEY}=${next};path=/;max-age=31536000;samesite=lax`
+    } catch {
+      /* cookies may be unavailable — non-fatal */
+    }
+    // Swap the leading /fi or /en segment, preserving the rest of the path.
+    const rest = (pathname ?? `/${lang}`).replace(/^\/(fi|en)(?=\/|$)/, '')
+    router.push(`/${next}${rest || ''}`)
+  }
 
   const t = (key: string): string => {
     return translations[lang][key] ?? translations['fi'][key] ?? key

@@ -2,23 +2,43 @@ import type { MetadataRoute } from 'next'
 import { SITE_URL } from '@/lib/site'
 import { machines } from '@/lib/machines'
 
+const LOCALES = ['fi', 'en'] as const
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
 
-  const staticRoutes: MetadataRoute.Sitemap = [
-    { url: `${SITE_URL}/`, lastModified: now, changeFrequency: 'monthly', priority: 1 },
-    { url: `${SITE_URL}/pakkauskoneet`, lastModified: now, changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${SITE_URL}/yhteistyossa`, lastModified: now, changeFrequency: 'yearly', priority: 0.6 },
-    { url: `${SITE_URL}/faq`, lastModified: now, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${SITE_URL}/ota-yhteytta`, lastModified: now, changeFrequency: 'yearly', priority: 0.7 },
+  const routes: { path: string; changeFrequency: 'monthly' | 'yearly'; priority: number }[] = [
+    { path: '', changeFrequency: 'monthly', priority: 1 },
+    { path: '/pakkauskoneet', changeFrequency: 'monthly', priority: 0.9 },
+    { path: '/yhteistyossa', changeFrequency: 'yearly', priority: 0.6 },
+    { path: '/referenssit', changeFrequency: 'monthly', priority: 0.6 },
+    { path: '/faq', changeFrequency: 'monthly', priority: 0.8 },
+    { path: '/ota-yhteytta', changeFrequency: 'yearly', priority: 0.7 },
+    { path: '/tietosuoja', changeFrequency: 'yearly', priority: 0.2 },
+    ...machines.map((m) => ({
+      path: `/pakkauskoneet/${m.slug}`,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
   ]
 
-  const machineRoutes: MetadataRoute.Sitemap = machines.map((m) => ({
-    url: `${SITE_URL}/pakkauskoneet/${m.slug}`,
-    lastModified: now,
-    changeFrequency: 'monthly',
-    priority: 0.7,
-  }))
+  const entries: MetadataRoute.Sitemap = []
+  for (const { path, changeFrequency, priority } of routes) {
+    for (const lang of LOCALES) {
+      entries.push({
+        url: `${SITE_URL}/${lang}${path}`,
+        lastModified: now,
+        changeFrequency,
+        priority,
+        alternates: {
+          languages: {
+            fi: `${SITE_URL}/fi${path}`,
+            en: `${SITE_URL}/en${path}`,
+          },
+        },
+      })
+    }
+  }
 
-  return [...staticRoutes, ...machineRoutes]
+  return entries
 }

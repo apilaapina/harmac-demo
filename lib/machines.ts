@@ -1,22 +1,22 @@
-const BASE = 'https://harmac.fi/wp-content/uploads/2021/10'
-
+// All product photos are served locally from public/machines/ (filename = slug).
+// PFM Group machines use official PFM photos; accessories use official partner-brand
+// photos (Webomatic, Loma). Replace any file in public/machines/ to swap a photo.
 export const machineImages: Record<string, string> = {
-  shamal:           `${BASE}/Swift_02-1024x642.jpg`,
-  swift:            `${BASE}/Swift_02-1024x642.jpg`,
-  falcon:           `${BASE}/Swift_02-1024x642.jpg`,
-  pearl:            `${BASE}/Swift_02-1024x642.jpg`,
-  zenith:           `${BASE}/BG_Vetta_2-958x1024.jpg`,
-  'bg-vetta':       `${BASE}/BG_Vetta_2-958x1024.jpg`,
-  'mbp-c2':         `${BASE}/PFM-MBP-C2ew-776x1024.jpg`,
-  'mbp-c1':         `${BASE}/PFM-MBP-C2ew-776x1024.jpg`,
-  teippauskoneet:   `${BASE}/P1033730-200x300-1-145x218.jpg`,
-  vakuumipakkaus:   `${BASE}/duoMAT_450_web_s-1-238x238.jpg`,
-  metallinpaljastin:`${BASE}/IQ4-Metal-Detector-Conveyor-217x217.jpg`,
-  painotarkkailu:   `${BASE}/c-series-checkweigher-transparent-181x181.png`,
+  shamal:           '/machines/shamal.jpg',
+  swift:            '/machines/swift.jpg',
+  falcon:           '/machines/falcon.jpg',
+  pearl:            '/machines/pearl.jpg',
+  zenith:           '/machines/zenith.jpg',
+  'bg-vetta':       '/machines/bg-vetta.jpg',
+  'mbp-c2':         '/machines/mbp-c2.png',
+  'mbp-c1':         '/machines/mbp-c1.png',
+  teippauskoneet:   '/machines/teippauskoneet.jpg',
+  vakuumipakkaus:   '/machines/vakuumipakkaus.jpg',
+  metallinpaljastin:'/machines/metallinpaljastin.jpg',
+  painotarkkailu:   '/machines/painotarkkailu.jpg',
 }
 
-export const HERO_IMAGE = 'https://harmac.fi/wp-content/uploads/2021/09/HARMAC_FB_cover_1640x923-1024x576-458x257.jpg'
-export const LOGO_URL   = 'https://harmac.fi/wp-content/uploads/2021/10/login-logo.png'
+export const LOGO_URL = '/logo.png'
 
 export type MachineSpec = {
   label: { fi: string; en: string }

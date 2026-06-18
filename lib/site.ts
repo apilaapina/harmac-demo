@@ -5,10 +5,14 @@
 export const SITE_URL = 'https://harmac.fi'
 export const SITE_NAME = 'Harmac Oy'
 
+/** Default social-share (Open Graph / Twitter) image, served from /public. */
+export const OG_IMAGE = { url: '/og.jpg', width: 1200, height: 630 }
+
 export const ORG = {
   name: 'Harmac Oy',
   legalName: 'Harmac Oy',
   phone: '+358400866569',
+  phoneDisplay: '+358 400 866 569',
   email: 'make@harmac.fi',
   street: 'Leinikkitie 20B',
   postalCode: '01350',

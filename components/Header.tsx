@@ -1,11 +1,12 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
+import Link from './LocaleLink'
 import Image from 'next/image'
 import { Menu, X, Phone } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 import { LOGO_URL } from '@/lib/machines'
+import { ORG } from '@/lib/site'
 import LanguageToggle from './LanguageToggle'
 
 export default function Header() {
@@ -23,6 +24,7 @@ export default function Header() {
     { href: '/#about', label: t('nav.company') },
     { href: '/pakkauskoneet', label: t('nav.machines') },
     { href: '/yhteistyossa', label: t('nav.partners') },
+    { href: '/referenssit', label: t('nav.references') },
     { href: '/faq', label: 'FAQ' },
   ]
 
@@ -63,11 +65,11 @@ export default function Header() {
           {/* Desktop right */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="tel:+358400866569"
+              href={`tel:${ORG.phone}`}
               className="flex items-center gap-1.5 text-sm font-medium text-text-muted hover:text-text transition-colors"
             >
               <Phone size={14} style={{ color: 'var(--brand)' }} />
-              +358 400 866 569
+              {ORG.phoneDisplay}
             </a>
             <LanguageToggle />
             <Link
@@ -121,11 +123,11 @@ export default function Header() {
           </nav>
           <div className="flex items-center justify-between mt-4 pt-3 border-t border-border">
             <a
-              href="tel:+358400866569"
+              href={`tel:${ORG.phone}`}
               className="flex items-center gap-1.5 text-sm text-text-muted"
             >
               <Phone size={14} style={{ color: 'var(--brand)' }} />
-              +358 400 866 569
+              {ORG.phoneDisplay}
             </a>
             <LanguageToggle />
           </div>

@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef, useEffect } from 'react'
-import Link from 'next/link'
+import Link from './LocaleLink'
 import { ArrowRight } from 'lucide-react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { useLanguage } from '@/context/LanguageContext'
@@ -31,6 +31,7 @@ export default function HeroVideo() {
         <video
           ref={videoRef}
           className="w-full h-full object-cover"
+          poster="/video/hero-poster.jpg"
           autoPlay
           muted
           loop

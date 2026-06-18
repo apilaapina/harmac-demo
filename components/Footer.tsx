@@ -1,10 +1,11 @@
 'use client'
 
-import Link from 'next/link'
+import Link from './LocaleLink'
 import Image from 'next/image'
 import { Phone, Mail, MapPin, PlayCircle, Share2 } from 'lucide-react'
 import { useLanguage } from '@/context/LanguageContext'
 import { LOGO_URL } from '@/lib/machines'
+import { ORG } from '@/lib/site'
 import LanguageToggle from './LanguageToggle'
 
 export default function Footer() {
@@ -63,6 +64,7 @@ export default function Footer() {
                 { href: '/pakkauskoneet?cat=multihead', label: t('category.multihead') },
                 { href: '/pakkauskoneet?cat=accessories', label: t('category.accessories') },
                 { href: '/yhteistyossa', label: t('nav.partners') },
+                { href: '/referenssit', label: t('nav.references') },
                 { href: '/faq', label: 'FAQ' },
               ].map(({ href, label }) => (
                 <li key={href}>
@@ -89,14 +91,14 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail size={14} className="flex-shrink-0" style={{ color: 'var(--brand)' }} />
-                <a href="mailto:make@harmac.fi" className="hover:text-white transition-colors">
-                  make@harmac.fi
+                <a href={`mailto:${ORG.email}`} className="hover:text-white transition-colors">
+                  {ORG.email}
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone size={14} className="flex-shrink-0" style={{ color: 'var(--brand)' }} />
-                <a href="tel:+358400866569" className="hover:text-white transition-colors">
-                  +358 400 866 569
+                <a href={`tel:${ORG.phone}`} className="hover:text-white transition-colors">
+                  {ORG.phoneDisplay}
                 </a>
               </li>
             </ul>
@@ -108,7 +110,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Harmac Oy. {t('footer.rights')}
           </p>
           <div className="flex items-center gap-4">
-            <Link href="#" className="text-xs text-white/30 hover:text-white/60 transition-colors">
+            <Link href="/tietosuoja" className="text-xs text-white/30 hover:text-white/60 transition-colors">
               {t('footer.privacy')}
             </Link>
             <LanguageToggle />

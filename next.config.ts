@@ -1,15 +1,6 @@
 import type { NextConfig } from 'next'
 
-const nextConfig: NextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'harmac.fi',
-        pathname: '/wp-content/uploads/**',
-      },
-    ],
-  },
-}
+// All images are served locally from /public — no remote image hosts needed.
+const nextConfig: NextConfig = {}
 
 export default nextConfig
