@@ -32,6 +32,10 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
+
+# internal working doc (not part of the site)
+/recommendations.html
 
 # vercel
 .vercel

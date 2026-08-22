@@ -1,7 +1,6 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+// All images are served locally from /public — no remote image hosts needed.
+const nextConfig: NextConfig = {}
 
-export default nextConfig;
+export default nextConfig
